@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Daily Gist</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #FF5F6D, #FFC371);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            width: 90%;
+            padding: 40px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #FF5F6D;
+            font-size: 2.5em;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            width: 60px;
+            height: 5px;
+            background: #FFC371;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .service-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            background-color: #FFE6E6;
+        }
+
+        .service-item h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #FF5F6D;
+        }
+
+        .service-item p {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="services-container">
+        <h1>Our Services</h1>
+        <div class="services-list">
+            <div class="service-item">
+                <h2>Breaking News Updates</h2>
+                <p>Stay informed with real-time updates on the latest breaking news around the world. Our dedicated team works around the clock to bring you accurate and timely information.</p>
+            </div>
+            <div class="service-item">
+                <h2>In-depth Analysis</h2>
+                <p>Delve deeper into the stories that matter with our expert analysis. We provide comprehensive insights and detailed reports to help you understand the big picture.</p>
+            </div>
+            <div class="service-item">
+                <h2>Exclusive Interviews</h2>
+                <p>Get closer to the stories with our exclusive interviews featuring key figures in politics, entertainment, business, and more. Hear their perspectives firsthand.</p>
+            </div>
+            <div class="service-item">
+                <h2>Multimedia Content</h2>
+                <p>Experience the news like never before with our engaging multimedia content. From videos to podcasts, we bring you stories through various formats.</p>
+            </div>
+            <div class="service-item">
+                <h2>Personalized News Feeds</h2>
+                <p>Customize your news experience with personalized feeds that deliver the stories that matter most to you. Stay updated on your interests with ease.</p>
+            </div>
+            <div class="service-item">
+                <h2>Opinion & Editorials</h2>
+                <p>Explore diverse viewpoints and thought-provoking editorials from our panel of experts. Engage with content that challenges your perspectives.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

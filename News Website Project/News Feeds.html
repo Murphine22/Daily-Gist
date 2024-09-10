@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigerian News Feeds</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #f2ece6, #c1b9b9);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .news-card {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: scale(1.02);
+        }
+
+        .news-image {
+            flex: 1;
+            max-width: 200px;
+            margin-right: 20px;
+        }
+
+        .news-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .news-content {
+            flex: 3;
+        }
+
+        .news-title {
+            font-size: 1.5em;
+            margin: 0;
+            color: #2a9d8f;
+        }
+
+        .news-title:hover {
+            color: #e76f51;
+        }
+
+        .news-meta {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .news-description {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .load-more {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .load-more button {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .load-more button:hover {
+            background-color: #e76f51;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Nigerian News Feeds</h1>
+    </header>
+
+    <div class="container" id="news-container">
+        <!-- News articles will be dynamically added here -->
+    </div>
+
+    <div class="load-more">
+        <button onclick="loadMore()">Load More News</button>
+    </div>
+
+    <script>
+        const newsData = [
+            {
+                title: "Breaking: Major Development in Nigerian Politics",
+                image: "https://via.placeholder.com/150",
+                date: "August 30, 2024",
+                description: "A significant shift in the Nigerian political landscape as major parties realign ahead of the upcoming elections."
+            },
+            {
+                title: "Economy: Naira Continues to Struggle Against the Dollar",
+                image: "https://via.placeholder.com/150",
+                date: "August 29, 2024",
+                description: "The Naira faces another challenging week as economic policies fail to stabilize the currency."
+            },
+            {
+                title: "Sports: Super Eagles Secure Victory in World Cup Qualifiers",
+                image: "https://via.placeholder.com/150",
+                date: "August 28, 2024",
+                description: "Nigeria’s Super Eagles continue their unbeaten run in the World Cup qualifiers with a thrilling win."
+            }
+        ];
+
+        let newsContainer = document.getElementById("news-container");
+
+        function displayNews() {
+            newsData.forEach(news => {
+                let newsCard = document.createElement('div');
+                newsCard.classList.add('news-card');
+                newsCard.innerHTML = `
+                    <div class="news-image">
+                        <img src="${news.image}" alt="${news.title}">
+                    </div>
+                    <div class="news-content">
+                        <h2 class="news-title">${news.title}</h2>
+                        <p class="news-meta">${news.date}</p>
+                        <p class="news-description">${news.description}</p>
+                    </div>
+                `;
+                newsContainer.appendChild(newsCard);
+            });
+        }
+
+        function loadMore() {
+            // Dummy function to simulate loading more news
+            alert('Loading more news...');
+        }
+
+        // Display initial news
+        displayNews();
+    </script>
+</body>
+
+</html>

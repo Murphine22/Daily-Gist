@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political News - Daily Gist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #fff 3px solid;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .post {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .post:hover {
+            transform: scale(1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .post img {
+            width: 100%;
+            height: auto;
+        }
+        .post-content {
+            padding: 15px;
+        }
+        .post-title {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .post-description {
+            margin: 10px 0;
+        }
+        .filter-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .filter-buttons button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .filter-buttons button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Political News</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="filter-buttons">
+            <button onclick="filterPosts('all')">All</button>
+            <button onclick="filterPosts('politics')">Politics</button>
+            <button onclick="filterPosts('economy')">Economy</button>
+        </div>
+
+        <div class="post-grid">
+            <div class="post" data-category="politics">
+                <img src="political-post1.jpg" alt="Political Post 1">
+                <div class="post-content">
+                    <h2 class="post-title">Political Post 1</h2>
+                    <p class="post-description">This is a summary of political news post 1.</p>
+                </div>
+            </div>
+            <div class="post" data-category="politics">
+                <img src="political-post2.jpg" alt="Political Post 2">
+                <div class="post-content">
+                    <h2 class="post-title">New Bill Sparks Heated Debate in Congress</h2>
+                    <p class="post-description">A controversial bill on healthcare reform has ignited fierce discussions among lawmakers, with potential far-reaching consequences for millions of Americans.</p>
+                </div>
+            </div>
+            <div class="post" data-category="economy">
+                <img src="economy-post1.jpg" alt="Economy Post 1">
+                <div class="post-content">
+
+                    <h2 class="post-title">Global Markets Surge Amid Trade Deal Optimism</h2>
+                    <p class="post-description">Stock markets worldwide experience significant gains as reports of a breakthrough in international trade negotiations boost investor confidence.</p>
+                </div>
+            </div>
+            <div class="post" data-category="politics">
+                <img src="political-post3.jpg" alt="Political Post 3">
+                <div class="post-content">
+                    <h2 class="post-title">Landmark Supreme Court Ruling Reshapes Voting Rights</h2>
+                    <p class="post-description">In a 5-4 decision, the Supreme Court has issued a ruling that could fundamentally alter the landscape of voting rights and electoral processes across the nation.</p>
+                </div>
+            </div>
+            <div class="post" data-category="economy">
+                <img src="economy-post2.jpg" alt="Economy Post 2">
+                <div class="post-content">
+                    <h2 class="post-title">Tech Giant's IPO Shatters Records on Wall Street</h2>
+                    <p class="post-description">The highly anticipated initial public offering of a major tech company has exceeded all expectations, becoming the largest IPO in U.S. history and signaling a new era in the tech industry.</p>
+                </div>
+            </div>
+            <div class="post" data-category="politics">
+                <img src="political-post4.jpg" alt="Political Post 4">
+                <div class="post-content">
+                    <h2 class="post-title">Diplomatic Tensions Rise in Middle East Peace Talks</h2>
+                    <p class="post-description">Negotiations between key Middle Eastern nations have reached a critical point, with recent developments threatening to derail years of diplomatic progress in the region.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterPosts(category) {
+            const posts = document.querySelectorAll('.post');
+            posts.forEach(post => {
+                if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

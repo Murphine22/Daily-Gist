@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainment Posts - Daily Gist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .post {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .post:hover {
+            transform: scale(1.02);
+        }
+        .post-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .post-description {
+            font-size: 1em;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .animation {
+            animation: fadeIn 2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Latest Entertainment Posts</h1>
+    </header>
+
+    <div class="container">
+        <div class="post animation">
+            <h2 class="post-title">The Hottest Concerts of 2024</h2>
+            <p class="post-description">Discover the most anticipated music concerts happening this year. From pop superstars to legendary rock bands, find out who's performing and when.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="post animation">
+            <h2 class="post-title">Top 10 Movies to Watch This Summer</h2>
+            <p class="post-description">Get ready for a cinematic adventure with our list of the top 10 must-see movies of the summer. From action-packed thrillers to heartwarming dramas, these films are a must-watch.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="post animation">
+            <h2 class="post-title">Exclusive Interview with a Rising Star</h2>
+            <p class="post-description">Join us as we sit down with the breakout star of the year for an exclusive interview. Find out about their journey, inspirations, and what’s next for their career.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for interactive functions
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('This is a placeholder for the detailed post page.');
+            });
+        });
+    </script>
+</body>
+</html>

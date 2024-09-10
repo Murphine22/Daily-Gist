@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .payment-container {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .payment-container h2 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 1.8em;
+            position: relative;
+        }
+
+        .payment-container h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #ACB6E5;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .payment-method {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .payment-method label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .payment-method select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .payment-method select:focus {
+            border-color: #74ebd5;
+            outline: none;
+        }
+
+        .payment-details {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .payment-details.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .payment-button {
+            background-color: #74ebd5;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .payment-button.active {
+            display: block;
+        }
+
+        .payment-button:hover {
+            background-color: #4BBF73;
+            transform: translateY(-3px);
+        }
+
+        .payment-button:active {
+            transform: translateY(0);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 480px) {
+            .payment-container {
+                padding: 30px 20px;
+            }
+
+            .payment-container h2 {
+                font-size: 1.5em;
+            }
+
+            .payment-button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Make a Payment</h2>
+        <form id="paymentForm">
+            <div class="payment-method">
+                <label for="paymentType">Choose Payment Method:</label>
+                <select id="paymentType">
+                    <option value="">Select Payment Method</option>
+                    <option value="card">Visa / Mastercard</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="crypto">Bitcoin</option>
+                    <option value="bank">Bank Transfer</option>
+                </select>
+            </div>
+            <div class="payment-details card-details">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                
+                <label for="cardExpiry">Expiry Date:</label>
+                <input type="text" id="cardExpiry" placeholder="MM/YY" required>
+                
+                <label for="cardCVV">CVV:</label>
+                <input type="text" id="cardCVV" placeholder="123" required>
+            </div>
+            <div class="payment-details crypto-details">
+                <label for="cryptoAddress">Bitcoin Wallet Address:</label>
+                <input type="text" id="cryptoAddress" placeholder="Your Bitcoin Wallet Address" required>
+            </div>
+            <div class="payment-details paypal-details">
+                <label for="paypalEmail">PayPal Email:</label>
+                <input type="email" id="paypalEmail" placeholder="Your PayPal Email" required>
+            </div>
+            <div class="payment-details bank-transfer-details">
+                <label for="accountName">Account Name:</label>
+                <input type="text" id="accountName" placeholder="Your Account Name" required>
+                
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" placeholder="Your Account Number" required>
+                
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" placeholder="Your Bank Name" required>
+            </div>
+            <button type="submit" class="payment-button">Proceed to Pay</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('paymentType').addEventListener('change', function() {
+            const cardDetails = document.querySelector('.card-details');
+            const cryptoDetails = document.querySelector('.crypto-details');
+            const paypalDetails = document.querySelector('.paypal-details');
+            const bankTransferDetails = document.querySelector('.bank-transfer-details');
+            const paymentButton = document.querySelector('.payment-button');
+
+            // Hide all payment method sections
+            cardDetails.classList.remove('active');
+            cryptoDetails.classList.remove('active');
+            paypalDetails.classList.remove('active');
+            bankTransferDetails.classList.remove('active');
+            paymentButton.classList.remove('active');
+
+            // Show the selected payment method section and the button
+            switch (this.value) {
+                case 'card':
+                    cardDetails.classList.add('active');
+                    paymentButton.classList.add('active');
+                    break;
+                case 'crypto':
+                    cryptoDetails.classList.add('active');
+                    paymentButton.classList.add('active');
+                    break;
+                case 'paypal':
+                    paypalDetails.classList.add('active');
+                    paymentButton.classList.add('active');
+                    break;
+                case 'bank':
+                    bankTransferDetails.classList.add('active');
+                    paymentButton.classList.add('active');
+                    break;
+            }
+        });
+
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Payment details submitted!');
+        });
+    </script>
+</body>
+</html>

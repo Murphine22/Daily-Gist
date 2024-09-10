@@ -1,0 +1,391 @@
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #d5d5c5;
+        transition: background-color 0.5s ease;
+      }
+
+      .dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+      }
+
+      .sticky-col {
+        position: sticky;
+        top: 20px;
+        max-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .carousel {
+        width: 450px;
+        height: 400px;
+        margin: 0 auto;
+      }
+
+      .carousel img,
+      .video-container video {
+        width: 450px;
+        height: 400px;
+        object-fit: cover;
+      }
+
+      .comments-container {
+        background-color: #f1f1f1;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      .settings-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+
+      .modal-content {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+  @keyframes fadeIn {
+    from {
+  opacity: 0;
+    }
+    to {
+  opacity: 1;
+  }
+}
+
+.interactive-feature:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+
+.sticky-col {
+  position: sticky;
+  top: 20px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.carousel {
+  width: 450px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.carousel img,
+.video-container video {
+  width: 450px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.news-feed .grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.news-feed .grid-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.news-feed .grid-item img {
+  margin-right: 20px;
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.comments-container {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.comment-likes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 40px 10px;
+  font-family: 'Arial', sans-serif;
+}
+
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 0 20px;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: #4CAF50;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-section:hover h3::after {
+  transform: scaleX(1);
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #4CAF50;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.social-icon {
+  font-size: 24px;
+  margin: 0 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+.fa-facebook-f { color: #3b5998; }
+.fa-twitter { color: #1da1f2; }
+.fa-instagram { color: #e1306c; }
+.fa-linkedin-in { color: #0077b5; }
+.fa-youtube { color: #aa0000;}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+      flex-direction: column;
+  }
+
+  .footer-section {
+      margin-bottom: 30px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.footer-section {
+  animation: fadeInUp 0.5s ease-out;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer .col-lg-6 {
+    text-align: center;
+  }
+}
+
+.pagination-container {
+  text-align: center;
+}
+
+.archive-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.archive-list li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 992px) {
+  .col-lg-3, .col-lg-6 {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.video-container {
+  text-align: center;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.carousel-caption h3 {
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .carousel-caption {
+    padding: 5px;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+}
+
+.hover-effect:hover {
+  color: #007bff !important;
+  transition: color 0.3s ease;
+}
+.hover-zoom {
+  transition: transform 0.3s ease;
+}
+.hover-zoom:hover {
+  transform: scale(1.05);
+}
+
+.sticky-col {
+  position: sticky;
+  top: 20px;
+}
+.list-group-item-action:hover {
+  transform: translateX(5px);
+  transition: transform 0.3s ease;
+}
+.card {
+  transition: box-shadow 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.hover-zoom {
+  transition: transform 0.3s ease-in-out;
+}
+.hover-zoom:hover {
+  transform: scale(1.05);
+}
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+.animate__animated {
+  animation-duration: 1s;
+}
+
+/* Adding a small, subtle separator line between columns */
+.row > aside, .row > main {
+  border-right: 1px solid rgba(0, 0, 0, 0.1); /* Thin line between columns */
+}
+
+aside:last-child {
+  border-right: none; /* No border after the last column */
+}
+
+
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.carousel-caption h3 {
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* Removing the scroll indicator from the navbar and footer */
+nav, footer {
+  border: none; /* No border for navbar and footer */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .carousel-caption {
+    padding: 5px;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+}

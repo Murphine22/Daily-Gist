@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports News | Daily Gist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .post {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .post img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .post-content {
+            padding: 20px;
+        }
+        .post-title {
+            font-size: 1.5em;
+            color: #333;
+            margin: 0 0 10px;
+        }
+        .post-description {
+            font-size: 1em;
+            color: #666;
+        }
+        .show-more-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .show-more-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Latest Sports News</h1>
+        <div id="posts">
+            <!-- Posts will be inserted here by JavaScript -->
+        </div>
+        <button class="show-more-btn" onclick="loadMorePosts()">Load More</button>
+    </div>
+
+    <script>
+        const posts = [
+            {
+                title: "New Record Set in Marathon Event",
+                description: "A new record was set at the recent marathon event. Find out who broke the record and how.",
+                image: "Assets/Images/maraton.jpg"
+            },
+            {
+                title: "Star Player Injured Before Big Game",
+                description: "The star player of the season is out due to injury just before the crucial game. What does this mean for the team’s chances?",
+                image: "Assets/Images/injury 1.jpg"
+            },
+            {
+                title: "Exciting Match Between Top Teams Ends in a Draw",
+                description: "In an electrifying game last night, the top teams fought hard but couldn't find a winner. Highlights and key moments from the match inside.",
+                image: "Assets/Images/team draw.jpg"
+            }
+        ];
+
+        let currentPostIndex = 0;
+
+        function loadMorePosts() {
+            const postsContainer = document.getElementById('posts');
+            const postsToLoad = 2; // Number of posts to load each time
+
+            for (let i = 0; i < postsToLoad; i++) {
+                if (currentPostIndex >= posts.length) break;
+                const post = posts[currentPostIndex];
+                currentPostIndex++;
+                
+                const postElement = document.createElement('div');
+                postElement.className = 'post';
+                postElement.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}">
+                    <div class="post-content">
+                        <div class="post-title">${post.title}</div>
+                        <div class="post-description">${post.description}</div>
+                    </div>
+                `;
+                postsContainer.appendChild(postElement);
+            }
+        }
+
+        // Initial load
+        loadMorePosts();
+    </script>
+</body>
+</html>

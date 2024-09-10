@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Posts - Daily Gist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .post {
+            background: #fff;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .post-title {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+        .post-content {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .read-more:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .scroll-top:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Latest Education Posts</h1>
+</header>
+
+<div class="container">
+    <div class="post">
+        <h2 class="post-title">The Future of E-Learning</h2>
+        <p class="post-content">Explore how e-learning is transforming education with innovative technologies and accessible resources. Discover the potential of online classrooms and virtual labs in shaping the future of education.</p>
+        <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="post">
+        <h2 class="post-title">10 Tips for Effective Online Learning</h2>
+        <p class="post-content">Maximize your online learning experience with these essential tips. From setting up a productive study environment to staying motivated and engaged, these strategies will help you succeed.</p>
+        <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="post">
+        <h2 class="post-title">How AI is Enhancing Education</h2>
+        <p class="post-content">Artificial Intelligence is playing a significant role in personalized education. Learn how AI tools are helping educators tailor learning experiences to individual student needs and improve educational outcomes.</p>
+        <a href="#" class="read-more">Read More</a>
+    </div>
+</div>
+
+<div class="scroll-top" id="scrollTop">↑</div>
+
+<script>
+    document.addEventListener('scroll', function() {
+        var scrollTopButton = document.getElementById('scrollTop');
+        if (window.scrollY > 200) {
+            scrollTopButton.style.display = 'block';
+        } else {
+            scrollTopButton.style.display = 'none';
+        }
+    });
+
+    document.getElementById('scrollTop').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+</body>
+</html>

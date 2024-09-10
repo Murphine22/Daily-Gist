@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Daily Gist</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: #fff;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            animation: zoomIn 1s ease;
+        }
+
+        .team-member h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #8e44ad;
+        }
+
+        .team-member p {
+            color: #555;
+        }
+
+        /* Animation Styles */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .team-member {
+                max-width: 90%;
+                margin: 10px auto;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+        }
+
+        footer {
+            background: #3498db;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>About Us - Daily Gist</h1>
+    </header>
+
+    <div class="container">
+        
+                <section class="about-us">
+                    <h2>Welcome to Daily Gist</h2>
+                    <p>Daily Gist is your go-to source for concise, reliable, and up-to-the-minute news. Founded in 2020, we've quickly become a trusted name in digital journalism, delivering bite-sized news updates to busy professionals and curious minds alike.</p>
+                    <p>Our mission is to keep you informed without overwhelming you. We distill complex stories into easy-to-digest formats, ensuring you stay on top of world events, technology trends, and cultural phenomena.</p>
+                    <p>With a dedicated team of experienced journalists and cutting-edge AI technology, we curate and deliver news that matters to you, 24/7. At Daily Gist, we believe in the power of informed citizens and strive to make quality information accessible to all.</p>
+                </section>
+        
+        <section class="team">
+            <div class="team-member" onclick="showDetails('ceo')">
+                <img src="https://via.placeholder.com/120" alt="CEO">
+                <h3>Elisha Ejimofor</h3>
+                <p>CEO & Founder</p>
+            </div>
+
+            <div class="team-member" onclick="showDetails('developer')">
+                <img src="https://via.placeholder.com/120" alt="Developer">
+                <h3>Kemi Fatoyinbo</h3>
+                <p>Lead Software Engineer</p>
+            </div>
+
+            <div class="team-member" onclick="showDetails('consultant')">
+                <img src="https://via.placeholder.com/120" alt="Consultant">
+                <h3>Sarah Fadipe</h3>
+                <p>IT Consultant</p>
+            </div>
+
+            <div class="team-member" onclick="showDetails('marketer')">
+                <img src="https://via.placeholder.com/120" alt="Marketer">
+                <h3>Daniel Okoli</h3>
+                <p>Chief Marketing Officer</p>
+            </div>
+
+            <div class="team-member" onclick="showDetails('business')">
+                <img src="https://via.placeholder.com/120" alt="Business Developer">
+                <h3>David Simon</h3>
+                <p>Business Developer</p>
+            </div>
+        </section>
+
+        <section id="details" style="display:none; margin-top: 30px; animation: slideInUp 0.5s ease;">
+            <h2 id="details-title"></h2>
+            <p id="details-description"></p>
+            <button onclick="hideDetails()" style="padding: 10px 20px; background-color: #3498db; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+        </section>
+    </div>
+<br><br><br>
+    <footer>
+        &copy; 2024 Daily Gist. All Rights Reserved.
+    </footer>
+
+    <script>
+        function showDetails(member) {
+            const detailsTitle = document.getElementById('details-title');
+            const detailsDescription = document.getElementById('details-description');
+            const details = document.getElementById('details');
+
+            const teamDetails = {
+                'ceo': {
+                    title: ' Elisha Ejimofor - CEO & Founder',
+                    description: `Elisha Ejimofor is the visionary behind Daily Gist. With over 15 years of experience in the media
+                    industry, she founded Daily Gist to bring fresh, unbiased news to the masses. Her leadership and
+                    commitment to journalistic integrity have propelled Daily Gist to become a trusted source of news
+                    worldwide.`
+                },
+                'developer': {
+                    title: 'Kemi Fatoyinbo - Lead Software Engineer',
+                    description: `Kemi Fatoyinbo leads our technology team with a focus on innovation and performance. With his
+                    expertise in full-stack development and AI-driven news platforms, John ensures that Daily Gist remains
+                    at the cutting edge of digital news delivery.`
+                },
+                'consultant': {
+                    title: 'Sarah Fadipe - IT Consultant',
+                    description: `Sarah Fadipe provides expert IT consultation, ensuring our infrastructure is secure, robust,
+                    and scalable. Her role is crucial in maintaining the reliability of our platform, so our readers can
+                    access the news they trust anytime, anywhere.`
+                },
+                'marketer': {
+                    title: 'Daniel Okoli - Chief Marketing Officer',
+                    description: `Daniel Okoli is responsible for all marketing strategies at Daily Gist. His innovative
+                    campaigns and deep understanding of audience engagement have significantly increased our readership
+                    and brand loyalty.`
+                },
+                'business': {
+                    title: 'David Simon - Business Developer',
+                    description: `David Simon is our lead in business development. Her work involves identifying growth
+                    opportunities, forming strategic partnerships, and expanding Daily Gist's market reach both locally
+                    and internationally.`
+                }
+            };
+
+            detailsTitle.textContent = teamDetails[member].title;
+            detailsDescription.textContent = teamDetails[member].description;
+
+            details.style.display = 'block';
+        }
+
+        function hideDetails() {
+            document.getElementById('details').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
